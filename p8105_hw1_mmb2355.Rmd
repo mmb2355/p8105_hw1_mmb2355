@@ -9,7 +9,7 @@ editor_options:
 
 ## Problem 1
 
-### packages
+### libraries
 
 ```{r}
 library(tidyverse)
@@ -30,6 +30,7 @@ ncol(penguins)
 
 mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
+
 * In the `penguins` dataset, the variables include: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. 
 * The values have units in mm, g, and yrs; the rest are either binary or nominal categorical. 
 * There are 344 rows and 8 columns
