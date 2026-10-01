@@ -1,0 +1,44 @@
+---
+title: "Homework 1"
+author: "Meghan Brown (mmb2355)<br>"
+date: "2026-09-26"
+output: github_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## Problem 1
+
+### Load `penguins` dataset
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+
+data("penguins", package = "palmerpenguins")
+```
+
+### description
+
+```{r}
+nrow(penguins)
+ncol(penguins)
+
+mean(penguins$flipper_length_mm, na.rm = TRUE)
+```
+* In the `penguins` dataset, the variables include: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. 
+* The values have units in mm, g, and yrs; the rest are either binary or nominal categorical. 
+* There are 344 rows and 8 columns
+* The mean flipper length is 200.92 mm
+
+### scatterplot
+
+```{r}
+ggplot(
+  penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+
+ggsave("penguins.png")
+```
+
+## Problem 2
+
