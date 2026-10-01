@@ -45,6 +45,8 @@ ggsave("penguins.png")
 ### create dataframe
 
 ```{r}
+set.seed(407)
+
 problem_2_df =
   tibble(
     norm_samp = rnorm(10),
