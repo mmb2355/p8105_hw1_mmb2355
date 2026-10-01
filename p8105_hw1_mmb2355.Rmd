@@ -12,6 +12,7 @@ editor_options:
 ### Load `penguins` dataset
 
 ```{r}
+library(tidyverse)
 library(palmerpenguins)
 
 data("penguins", package = "palmerpenguins")
@@ -33,8 +34,6 @@ mean(penguins$flipper_length_mm, na.rm = TRUE)
 ### scatterplot
 
 ```{r}
-library(tidyverse)
-
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 
 ggsave("penguins.png")
@@ -59,8 +58,6 @@ problem_2_df =
 ### variable means
 
 ```{r}
-library(tidyverse)
-
 mean(pull(problem_2_df, norm_samp))
 mean(pull(problem_2_df, vec_logical))
 mean(pull(problem_2_df, vec_char))
