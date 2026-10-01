@@ -12,7 +12,6 @@ editor_options:
 ### Load `penguins` dataset
 
 ```{r}
-library(tidyverse)
 library(palmerpenguins)
 
 data("penguins", package = "palmerpenguins")
@@ -34,11 +33,51 @@ mean(penguins$flipper_length_mm, na.rm = TRUE)
 ### scatterplot
 
 ```{r}
-ggplot(
-  penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+library(tidyverse)
+
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 
 ggsave("penguins.png")
 ```
 
 ## Problem 2
 
+### create dataframe
+
+```{r}
+problem_2_df =
+  tibble(
+    norm_samp = rnorm(10),
+    vec_logical = norm_samp > 0,
+    vec_char = letters[1:10],
+    vec_factor = factor(rep(c("Low", "Medium", "High"), length.out = 10))
+  )
+```
+
+### variable means
+
+```{r}
+library(tidyverse)
+
+mean(pull(problem_2_df, norm_samp))
+mean(pull(problem_2_df, vec_logical))
+mean(pull(problem_2_df, vec_char))
+mean(pull(problem_2_df, vec_factor))
+```
+
+* norm_samp and vec_logical both have mean values
+* vec_char and vec_factor do not (it says NA)
+
+### `as.numeric` function
+
+```{r}
+as.numeric(pull(problem_2_df, vec_logical))
+as.numeric(pull(problem_2_df, vec_char))
+as.numeric(pull(problem_2_df, vec_factor))
+```
+
+* vec_logical has values of 0 and 1, creating binary variables based if the function is true (rnorm > 0)
+* vec_char has NA values by coercion because they are letters (cannot be converted to numbers)
+* vec_factor has values from 1 to 3 (ranking low, medium, and high levels)
+
+It explains why taking the mean did not work for vec_char and vec_factor. The variable vec_logical did take a mean, however it would be values between 0 and 1 since it is a binary variable.
