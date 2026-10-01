@@ -9,12 +9,16 @@ editor_options:
 
 ## Problem 1
 
-### Load `penguins` dataset
+### packages
 
 ```{r}
 library(tidyverse)
 library(palmerpenguins)
+```
 
+### Load `penguins` dataset
+
+```{r}
 data("penguins", package = "palmerpenguins")
 ```
 
