@@ -45,7 +45,7 @@ ggsave("penguins.png")
 ### create dataframe
 
 ```{r}
-set.seed(407)
+set.seed(40)
 
 problem_2_df =
   tibble(
